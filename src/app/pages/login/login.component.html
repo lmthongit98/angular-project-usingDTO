@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-icon svgIcon="account-circle"></mat-icon>
+  <h1>REGISTER</h1>
+  <form class="login-form" [formGroup]="userLoginForm" (ngSubmit)="onSubmit()">
+    <!-- username -->
+    <mat-form-field class="login-full-width">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput [formControl]="usernameFormControl" placeholder="Ex.lmthong98">
+      <mat-error *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
+        Username must at least 6 characters !
+      </mat-error>
+      <mat-error *ngIf="usernameFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- password -->
+    <mat-form-field class="login-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput [formControl]="passwordFormControl">
+      <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+        Password must at least 6 characters !
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="sign-up">
+      <a routerLink="/register">Sign up</a>
+    </div>
+    <div>
+        <mat-error>
+          <p *ngIf="errorLogin" class="text-danger">{{errorLogin}}</p>
+        </mat-error>
+    </div>
+    <div class="btn-submit">
+      <button mat-raised-button color="primary" [disabled]="!userLoginForm.valid" type="submit"
+        class="registerbtn">Login</button>
+    </div>
+  </form>
+
+</div>

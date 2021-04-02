@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-icon svgIcon="account-circle"></mat-icon>
+  <h1>REGISTER</h1>
+  <form [formGroup]="userLoginForm" (submit)="saveUser()">
+    <mat-form-field class="register-full-width">
+      <mat-label for="username">Username</mat-label>
+      <input id="username" type="text" matInput formControlName="username" />
+      <mat-error>
+        <control-messages [control]="userLoginForm.get('username')"></control-messages>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="register-full-width">
+      <mat-label for="email">Email</mat-label>
+      <input id="email" type="email" matInput formControlName="email" placeholder="example@gmail.com" />
+      <mat-error>
+        <control-messages [control]="userLoginForm.get('email')"></control-messages>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="register-full-width">
+      <mat-label for="password">Password</mat-label>
+      <input id="password" type="password" matInput formControlName="password" [(ngModel)]="confirmPass.password" />
+      <mat-error>
+        <control-messages [control]="userLoginForm.get('password')"></control-messages>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="register-full-width">
+      <mat-label for="passConfirm">Confirm password</mat-label>
+      <input id="passConfirm" matInput type="password" formControlName="passConfirm" />
+      <mat-error>
+        <control-messages [control]="userLoginForm.get('passConfirm')"></control-messages>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="btn-submit">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!userLoginForm.valid">Submit</button>
+    </div>
+  </form>
+</div>

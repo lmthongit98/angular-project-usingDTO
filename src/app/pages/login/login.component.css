@@ -1,0 +1,65 @@
+.login-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.login-full-width {
+  width: 100%;
+}
+
+.btn-submit{
+  text-align: center;
+}
+
+.btn-submit button {
+  font-size: 1.2rem;
+}
+
+mat-form-field{
+  margin: 8px 0;
+}
+
+mat-label{
+  font-size: 1.2rem;
+}
+
+mat-error{
+  font-size: 0.8rem;
+}
+
+.sign-up{
+  text-align: right;
+}
+
+.sign-up a{
+  text-decoration: none;
+  color: #42a5f5;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+
+.container{
+  max-width: 500px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+h1{
+  text-decoration: none;
+  color: #42a5f5;
+  font-weight: bold;
+}
+
+mat-icon{
+  color: #42a5f5;
+  width: 50px;
+  height: 50px;
+}
+
+.text-danger{
+  color: rgb(168, 11, 11);
+  font-size: 1rem;
+}

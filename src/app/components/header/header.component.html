@@ -1,0 +1,22 @@
+<div class="container">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a routerLink="/home" routerLinkActive="active" class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/users" routerLinkActive="active" class="nav-link" href="#">Users</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav  mt-2">
+          <li *ngIf="!login" class="nav-item mr-2">
+            <a routerLink="/login" routerLinkActive="active" class="btn btn-secondary" href="#">Login</a>
+          </li>
+
+          <li *ngIf="login" class="nav-item">
+            <a routerLink="/home" (click)="onLogout()" class="btn btn-secondary" href="#">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>

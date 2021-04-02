@@ -1,0 +1,9 @@
+<div class="card mt-4">
+  <h4 class="card-header">List users</h4>
+  <div class="card-body">
+      <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+      <ul *ngIf="users">
+          <li *ngFor="let user of users">{{user.username}}</li>
+      </ul>
+  </div>
+</div>
