@@ -13,14 +13,17 @@ import { Converter } from "../converter/converter";
 export class UserService {
   constructor(private api: UserAPI, private converter: UserConverter) {}
 
+
+
   login(username: string, password: string) {
     //handle login
     return this.api.login(username, password);
   }
 
   register(user: UserModel){
-    return this.api.register(this.converter.toDto(user))
+    return this.api.register(this.converter.toDto(user));
   }
+
 
   getAll(){
     return this.api.getAll();

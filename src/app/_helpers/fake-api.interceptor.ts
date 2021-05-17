@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { Observable, of, throwError } from "rxjs";
 import { delay, dematerialize, materialize, mergeMap } from "rxjs/operators";
 
-
-const users = JSON.parse(localStorage.getItem('users')!)
+const usersKey = 'users';
+let users:any = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')!) : []
 
 @Injectable()
 export class FakeAPI implements HttpInterceptor {
@@ -71,6 +71,33 @@ export class FakeAPI implements HttpInterceptor {
       });
     }
 
+    function updateUser() {
+      debugger
+      let params = body;
+      let user = users.find((x: { id: number; }) => x.id === idFromUrl());
+
+      if (params.email !== user.email && users.find((x: { email: any; }) => x.email === params.email)) {
+        return error(`User with the email ${params.email} already exists`);
+      }
+
+      // only update password if entered
+      if (!params.password) {
+        delete params.password;
+      }
+
+      // update and save user
+      Object.assign(user, params);
+      localStorage.setItem(usersKey, JSON.stringify(users));
+
+      return ok();
+    }
+
+    function deleteUser() {
+      users = users.filter((x: { id: number; }) => x.id !== idFromUrl());
+      localStorage.setItem(usersKey, JSON.stringify(users));
+      return ok();
+    }
+
 
     // helper functions
 
@@ -94,6 +121,8 @@ export class FakeAPI implements HttpInterceptor {
       const urlParts = url.split('/');
       return parseInt(urlParts[urlParts.length - 1]);
     }
+
+
   }
 
 }

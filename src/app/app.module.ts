@@ -20,6 +20,12 @@ import { FakeAPIProvider } from './_helpers/fake-api.interceptor';
 import { HomeComponent } from './pages/home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
+
 
 
 
@@ -33,6 +39,8 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
     ControlMessages,
     HeaderComponent,
     HomeComponent,
+    EditModalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,10 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
     FlexLayoutModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
     FormsModule

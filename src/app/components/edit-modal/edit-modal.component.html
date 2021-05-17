@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>Edit User</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <form [formGroup]="editForm">
+
+      <mat-form-field class="register-full-width">
+        <mat-label for="username">Username</mat-label>
+        <input [(ngModel)]="user.username" id="username" type="text" matInput formControlName="username" />
+        <mat-error>
+          <control-messages [control]="editForm.get('username')"></control-messages>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label for="email">Email</mat-label>
+        <input  [(ngModel)]="user.email" id="email" type="email" matInput formControlName="email" placeholder="example@gmail.com" />
+        <mat-error>
+          <control-messages [control]="editForm.get('email')"></control-messages>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label for="password">Password</mat-label>
+        <input  id="password" type="password" matInput formControlName="password" [(ngModel)]="confirmPass.password" />
+        <mat-error>
+          <control-messages [control]="editForm.get('password')"></control-messages>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label for="passConfirm">Confirm password</mat-label>
+        <input id="passConfirm" matInput type="password" formControlName="passConfirm" />
+        <mat-error>
+          <control-messages [control]="editForm.get('passConfirm')"></control-messages>
+        </mat-error>
+      </mat-form-field>
+
+    </form>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="{user: editForm.value, oldPassword: user.password, id: user.id}" [disabled]="!editForm.valid">Update</button>
+</mat-dialog-actions>

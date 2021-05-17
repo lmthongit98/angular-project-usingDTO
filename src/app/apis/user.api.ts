@@ -8,6 +8,7 @@ import { HOST } from "./path.builder";
 const LOGIN_PATH = HOST + '/auth/login'
 const REGISTER_PATH = HOST + '/users/register';
 const GET_USERS_PATH = HOST + '/users';
+const UPDATE_USERS_PATH = HOST + '/users';
 
 @Injectable({
   providedIn: 'root'

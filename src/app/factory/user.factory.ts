@@ -10,6 +10,7 @@ export class UserFactory {
 
   model(): any{
     return {
+      id: -1,
       username: '',
       email: '',
       password: '',
